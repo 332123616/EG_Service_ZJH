@@ -6,7 +6,7 @@ Imports Dll_ToolModule
 ''' </summary>
 Public Class ArithmeticClass
     Dim haha As String = "github110"
-    Dim a As Integer
+    Dim a As Integer = 120
     ''' <summary>
     ''' 用户字典
     ''' </summary>
