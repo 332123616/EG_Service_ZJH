@@ -5,6 +5,7 @@ Imports Dll_ToolModule
 ''' 游戏算法类
 ''' </summary>
 Public Class ArithmeticClass
+    Dim haha As String = "github"
     ''' <summary>
     ''' 用户字典
     ''' </summary>
