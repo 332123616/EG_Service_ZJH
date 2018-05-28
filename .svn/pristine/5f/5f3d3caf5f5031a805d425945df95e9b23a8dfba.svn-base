@@ -1,0 +1,794 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+EG_Service_ZJH_80110A
+</name>
+</assembly>
+<members>
+<member name="T:EG_Service_ZJH.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:EG_Service_ZJH.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:EG_Service_ZJH.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:EG_Service_ZJH.MainModule">
+ <summary>
+ 程序名称：游戏服务 框架代码
+ 程序作用：
+ 1、暂无
+ 更新记录：
+ 2016/11/15 修改人：阿森 修改内容：开发
+ 2017/08/30 修改人：孙哥 修改内容：重构开发。
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.MainModule.EGTag">
+ <summary>
+ 游戏服务 唯一标记(每个游戏必须不同)
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.MainModule.Maintenance">
+ <summary>
+ 维护开关 false非维护 true维护中
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.MainModule.ConnectString">
+ <summary>
+ 连接数据库字符串
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.MainModule.UpActiveTimeTh">
+ <summary>
+ 线程更新本服务活跃
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.MainModule.DBControl">
+ <summary>
+ 数据库操作对象
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.MainModule._XMLLoad">
+ <summary>
+ XML信息读取类{Active 表示活跃数据库标记 ConnectA数据库A连接字符串 ConnectB数据库B连接字符串}
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.MainModule.ToDBMaxErrCount">
+ <summary>
+ 存储数据库错误记录数量，此数量如果大于1000那么将不存储数据库
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.MainModule.ToDBMaxSubCount">
+ <summary>
+ 存储数据库过程记录数量，此数量如果大于1000那么将不存储数据库
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.MainModule.XMLChangeEvent">
+ <summary>
+ XML文件信息被修改后自动触发
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.MainModule.DBUpdateControl">
+ <summary>
+ 实例化对象
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.MainModule.ManageDB">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.MainModule.ManageClient">
+ <summary>
+ 管理APP连接的对象
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.MainModule.ManageServer">
+ <summary>
+ 管理连接游戏服务器的对象
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.MainModule.UserList">
+ <summary>
+ 所有玩家集合Key记录校验码
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.MainModule.MsgList">
+ <summary>
+ 消息序列
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.MainModule.StartService">
+ <summary>
+ 启动服务
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.MainModule.StopService">
+ <summary>
+ 停止服务
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.MainModule.UpActiveTime">
+ <summary>
+ 更新服务活跃时间
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.MainModule.DBSubWrite(System.String)">
+ <summary>
+ 记录过程到数据库
+ </summary>
+ <param name="_Content">记录信息</param>
+</member>
+<member name="M:EG_Service_ZJH.MainModule.DBErrWrite(System.String,System.Exception)">
+ <summary>
+ 记录错误到数据库
+ </summary>
+ <param name="_title"></param>
+ <param name="_ex"></param>
+</member>
+<member name="T:EG_Service_ZJH.ToListenClientClass">
+ <summary>
+ 程序名称：处理转接器发送数据模块
+ 程序作用：
+ 1、与转接器
+ 更新记录：
+ 2017/08/30 修改人：孙哥 修改内容：重构开发。
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.ToListenClientClass._ListenServer">
+ <summary>
+ 监听APP连入的服务器SOCKET
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.ToListenClientClass.#ctor(System.String,System.Int32,System.Int32)">
+ <summary>
+ 构造方法
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.ToListenClientClass.Dispose">
+ <summary>
+ 销毁本类
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.ToListenClientClass.UesrReceiveAppEvent(System.String,Dll_ToolModule.ServerUserClass)">
+ <summary>
+ 当有接收应用层数据自动触发
+ </summary>
+ <param name="_Msgstr"></param>
+ <param name="_SocketUser"></param>
+</member>
+<member name="F:EG_Service_ZJH.ToListenClientClass.MsgListLock">
+ <summary>
+ 接收消息锁
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.ToListenClientClass.ListenServerConnectedEvent(Dll_ToolModule.ServerUserClass)">
+ <summary>
+ 与转接器连接成功时触发
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.ToListenClientClass.ListenServerLeaveEvent(Dll_ToolModule.ServerUserClass)">
+ <summary>
+ 与转接器断线时触发
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.ToListenClientClass.NoActiveTh">
+ <summary>
+ 长时间未操作控制线程
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.ToListenClientClass.NoActiveTh1">
+ <summary>
+ 长时间未操作方法 59分钟踢掉
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.ToListenClientClass.MsgThread">
+ <summary>
+ 消息序列线程
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.ToListenClientClass.MsgThreadSub">
+ <summary>
+ 消息序列线程
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.ToListenClientClass.RemoveMsgList(System.String)">
+ <summary>
+ 当接收到回执后，删除消息序列中数据
+ </summary>
+ <param name="_Key"></param>
+</member>
+<member name="T:EG_Service_ZJH.MsgClass">
+ <summary>
+ 消息类
+ </summary>
+</member>
+<member name="T:EG_Service_ZJH.ToLoginServerClass">
+ <summary>
+ 程序名称：与登入服务交互类
+ 程序作用：
+ 1、与登入服务 进行数据交互的类
+ 更新记录：
+ 2016/11/15 修改人：阿森 修改内容：开发
+ 2017/08/30 修改人：孙哥 修改内容：重构开发。
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.ToLoginServerClass._LoginServiceSocket">
+ <summary>
+ 客户端SOCKET对象，用于连接登入服务器
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.ToLoginServerClass.#ctor(System.String,System.Int32)">
+ <summary>
+ 构造方法，同时开启连接登入服务器
+ </summary>
+ <param name="_ServerIP"></param>
+ <param name="_ServerPort"></param>
+</member>
+<member name="M:EG_Service_ZJH.ToLoginServerClass.Dispose">
+ <summary>
+ 销毁本类
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.ToLoginServerClass.ConnectedEvent">
+ <summary>
+ 连接登入服务器成功时触发
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.ToLoginServerClass.LeaveEvent">
+ <summary>
+ 掉线触发
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.ToLoginServerClass.ReceiveEvent(System.String)">
+ <summary>
+ 接收数据触发
+ </summary>
+ <param name="_Msgstr"></param>
+</member>
+<member name="T:EG_Service_ZJH.ArithmeticClass">
+ <summary>
+ 游戏算法类
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.ArithmeticClass.UserDic">
+ <summary>
+ 用户字典
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.ArithmeticClass.GameNum">
+ <summary>
+ 游戏局数
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.ArithmeticClass.Card">
+ <summary>
+ 2副牌的数组 每幅三张牌
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.ArithmeticClass.Status">
+ <summary>
+ 游戏状态
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.ArithmeticClass.IsBet">
+ <summary>
+ 是否可以下注
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.ArithmeticClass.MinBet">
+ <summary>
+ 最小下注
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.ArithmeticClass.MaxBet">
+ <summary>
+ 最大下注
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.ArithmeticClass.MaxUser">
+ <summary>
+ 人数上限
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.ArithmeticClass.Seat">
+ <summary>
+ 座位号集合
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.ArithmeticClass.CardRoadNote">
+ <summary>
+ 牌路记录
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.ArithmeticClass.CardTypeNote">
+ <summary>
+ 牌型记录
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.ArithmeticClass.Stage">
+ <summary>
+ 游戏阶段
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.ArithmeticClass.TotalBet">
+ <summary>
+ 本区总下注
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.ArithmeticClass.UpdateTotalBet(EG_Service_ZJH.UserClass@,System.String)">
+ <summary>
+ 更新当前区的总下注（每当玩家下注时更新）
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.ArithmeticClass.Init(EG_Service_ZJH.UserClass@)">
+ <summary>
+ 初始化方法 当玩家进入该分区时调用
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.ArithmeticClass.GameThread">
+ <summary>
+ 游戏局数线程，一关一循环
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.ArithmeticClass.JudgeScore(System.String)">
+ <summary>
+ 算分
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.ArithmeticClass.FailWin(System.String[])">
+ <summary>
+龙与凤比较输赢 返回的数据格  0:A|3:0|0
+龙的牌型:点数|凤的牌型:点数|0龙赢了 1凤赢了 2他俩平手
+ </summary>
+ <returns>返回闲家输赢状态</returns>
+</member>
+<member name="M:EG_Service_ZJH.ArithmeticClass.JudgeCardType(System.String)">
+ <summary>
+  判断3张牌的牌型 返回的数据  豹子杀手-1/2/3/5     散牌0/1/2/4   对子1/2/3/3      顺子2/3/4/5    同花3/4/6/8     同花顺4/5/6/7    豹子5/4/4/4 
+  第一个数是牌型；后面的三个数是点数，点数由小到大排列，对子特殊(最后俩张牌是对子，前面是单张)
+ </summary>
+ <param name="_Card"></param>
+ <returns></returns>
+</member>
+<member name="M:EG_Service_ZJH.ArithmeticClass.SendDataToAll(System.String)">
+ <summary>
+ 给所有人发送数据
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.ArithmeticClass.WashCard">
+ <summary>
+ 洗牌分牌 分2份 分别是：龙 凤  每份3张 数据格式：101/102/114
+ </summary>
+</member>
+<member name="T:EG_Service_ZJH.LogicModule">
+ <summary>
+ 逻辑代码模块
+发送数据方法 userclass.senddata(数据)
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.LogicModule.GameNum">
+ <summary>
+ 游戏局数
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.LogicModule.GameGuan">
+ <summary>
+ 游戏关数
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.LogicModule.Version">
+ <summary>
+ 版本号
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.LogicModule.GameMachineCount">
+ <summary>
+ 开放的机台数
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.LogicModule.ItemInitialise">
+ <summary>
+ 初始化
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.LogicModule.UesrNewConnEvent(EG_Service_ZJH.UserClass@)">
+ <summary>
+  用户连入事件（新用户）
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.LogicModule.UserDisconnEvent(EG_Service_ZJH.UserClass@)">
+ <summary>
+ 用户返回到大厅
+ </summary>
+ <param name="_User"></param>
+</member>
+<member name="M:EG_Service_ZJH.LogicModule.UesrReceiveEvent(System.String,EG_Service_ZJH.UserClass@)">
+ <summary>
+ 用户接收数据事件
+ </summary>
+ <param name="_Data">数据内容</param>
+ <param name="_User">用户</param>
+</member>
+<member name="M:EG_Service_ZJH.LogicModule.SettleAccountsInfo(System.String)">
+ <summary>
+ 结算，中心服务器返回信息触发此过程
+ </summary>
+ <param name="_Data"></param>
+</member>
+<member name="M:EG_Service_ZJH.LogicModule.GetUser(System.String)">
+ <summary>
+ 通过账号寻找玩家
+ </summary>
+ <param name="_Account">账号</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:EG_Service_ZJH.LogicModule.SendDataToCenter(System.String)">
+ <summary>
+ 向中心服务器发送数据
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.LogicModule.SelectDB">
+ <summary>
+ 查询配置表的线程
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.LogicModule.GameStatus">
+ <summary>
+ 游戏状态线程 1秒1循环 给登入服务器发送各个分区的状态数据
+ </summary>
+</member>
+<member name="T:EG_Service_ZJH.ToDatabankClass">
+ <summary>
+ 对数据库进行操作的函数集合类  DBControl
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.ToDatabankClass.InsertPrizeInfo(System.Int32,System.Int32,System.String,System.Int32,System.String,System.String,System.String,System.Int32,System.Double,System.Double,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Double,System.Double)">
+ <summary>
+ 插入中奖信息
+ </summary>
+ <param name="_Dealer">经销商序号</param>
+ <param name="_Subregion">分站序号</param>
+ <param name="_GameMark">游戏标记</param>
+ <param name="_Seat">座位号</param>
+ <param name="_WinName">中奖标记</param>
+ <param name="_Account">账号</param>
+ <param name="_Nick">昵称</param>
+ <param name="_Module">模组号</param>
+ <param name="_Bet">下注多少</param>
+ <param name="_SendJackpot">发放多少彩金(赠分)</param>
+ <param name="_AlreadySend">是否发放过(0未发放 1已发放)</param>
+ <param name="_WinState">中奖状态(0自然 1强增 2取消强增)</param>
+ <param name="_WinType">中奖类型(0彩金记录表 1是奖项中奖记录)</param>
+ <param name="_MemberType">会员类型(0会员 1是NPC)</param>
+ <param name="_Fullbets">是否满投注（0未满 1满）</param>
+</member>
+<member name="M:EG_Service_ZJH.ToDatabankClass.UserRank">
+ <summary>
+ 根据玩家等级、分站、经销商、游戏标记、 获取返水比例
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:EG_Service_ZJH.ToDatabankClass.SelectAfficheModel(System.String,System.String,System.String)">
+ <summary>
+ 查询跑马灯模板
+ </summary>
+ <param name="_Condition">赢的分数</param>
+ <param name="_GameMark">游戏标记 中风火轮和彩金时传空字符串</param>
+ <param name="_PrizeName">中奖类型 如:DRZT</param>
+ <returns></returns>
+</member>
+<member name="M:EG_Service_ZJH.ToDatabankClass.InsertAffiche(System.String,System.String)">
+ <summary>
+ 添加跑马灯
+ </summary>
+ <param name="_nContent">跑马灯内容</param>
+ <param name="_GameIndication">跑马灯显示范围 添加游戏标记，如果是风火轮和彩金写九个游戏的标记用逗号隔开</param>
+</member>
+<member name="M:EG_Service_ZJH.ToDatabankClass.SelectUserModule(System.String)">
+ <summary>
+查询玩家的模组数据
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:EG_Service_ZJH.ToDatabankClass.SelectRoomSeat">
+ <summary>
+ 查询机台座位信息
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:EG_Service_ZJH.ToDatabankClass.SelectNpcInfo">
+ <summary>
+ 查询Npc用户名
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:EG_Service_ZJH.UserClass">
+ <summary>
+ 游戏服务器 用户类
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.CheckCode">
+ <summary>
+ 校验码
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.MachineNumber">
+ <summary>
+ 分区号
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.Seat">
+ <summary>
+ 座位号
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.Account">
+ <summary>
+ 游戏帐号
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.Integral">
+ <summary>
+ 游戏积分
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.ActiveTime">
+ <summary>
+ 活跃时间
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.HeartTimes">
+ <summary>
+ 验证次数
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.OnLine">
+ <summary>
+ 当前连接状态
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.IsPlay">
+ <summary>
+ 是否已玩
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.MsgNumArray">
+ <summary>
+ 信息序号集合 用于过滤重复信息
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.SocketDic">
+ <summary>
+ 保存socket key：转接器标记  value:socket
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.MsgNum">
+ <summary>
+ 想客户端发送信息的序号
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.FilterLock">
+ <summary>
+信息过滤锁
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.Dealer">
+ <summary>
+ 经销商序号
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.Substation">
+ <summary>
+ 分站序号
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.Agent">
+ <summary>
+ 代理
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.Nick">
+ <summary>
+ 昵称
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.Device">
+ <summary>
+ 玩家登入方式
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.UserRank">
+ <summary>
+会员等级
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.AccountType">
+ <summary>
+ 账号类型
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.NoteType">
+ <summary>
+ 给中心服务器发送的注单类型
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.UserClass.SendData(System.String)">
+ <summary>
+ 发送数据
+ </summary>
+ <param name="_MsgStr"></param>
+</member>
+<member name="M:EG_Service_ZJH.UserClass.SendData1(System.String)">
+ <summary>
+ 发送数据
+ </summary>
+ <param name="_MsgStr"></param>
+</member>
+<member name="M:EG_Service_ZJH.UserClass.Dispose">
+ <summary>
+ 如果类中有使用非托管对象，那么当本类销毁的时候，在销毁过程中加入该对象
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.UserClass.SendDataToCenter(System.String)">
+ <summary>
+ 向中心服务器发送数据
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.Bet">
+ <summary>
+ 下注格式： 0/0/0/0/0/0/0     龙/凤/8对以上/顺子/同花/同花顺/豹子
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.BetScore">
+ <summary>
+ 下注分数
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.Score">
+ <summary>
+ 中奖分数
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.BackWater">
+ <summary>
+ 反水
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.UserClass.NoteContent">
+ <summary>
+ 注单内容
+ </summary>
+</member>
+<member name="T:EG_Service_ZJH.Module1.ZYJZArithmeticTest">
+ <summary>
+ TestFixture:表明这是一个需要测试的类
+ Category：自己起的名，方便类的区分和测试
+
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.Module1.ZYJZArithmeticTest.MainStartGame">
+ <summary>
+ SetUp:初始化测试环境，本例中为读取Config.XML文件信息，以及数据库的读取和存储操作
+ 定义：测试函数的初始化函数，每个测试函数运行前都会被调用一次
+ NUnit运行时第一步走这里，
+ 测试用例编写步骤一
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.Module1.ZYJZArithmeticTest.TestArithmetic">
+ <summary>
+ 测试算法：ArithmeticClass-->GameStart
+ </summary>
+</member>
+<member name="T:EG_Service_ZJH.Module1.TestArithmeticClass">
+ <summary>
+ 游戏算法类
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.Module1.TestArithmeticClass.UserDic">
+ <summary>
+ 用户字典
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.Module1.TestArithmeticClass.GameNum">
+ <summary>
+ 游戏局数
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.Module1.TestArithmeticClass.Card">
+ <summary>
+ 2副牌的数组 每幅三张牌
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.Module1.TestArithmeticClass.Status">
+ <summary>
+ 游戏状态
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.Module1.TestArithmeticClass.IsBet">
+ <summary>
+ 是否可以下注
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.Module1.TestArithmeticClass.MinBet">
+ <summary>
+ 最小下注
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.Module1.TestArithmeticClass.MaxBet">
+ <summary>
+ 最大下注
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.Module1.TestArithmeticClass.MaxUser">
+ <summary>
+ 人数上限
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.Module1.TestArithmeticClass.Seat">
+ <summary>
+ 座位号集合
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.Module1.TestArithmeticClass.CardRoadNote">
+ <summary>
+ 牌路记录
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.Module1.TestArithmeticClass.CardTypeNote">
+ <summary>
+ 牌型记录
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.Module1.TestArithmeticClass.Init(EG_Service_ZJH.UserClass@)">
+ <summary>
+ 初始化方法 当玩家进入该分区时调用
+ </summary>
+</member>
+<member name="F:EG_Service_ZJH.Module1.TestArithmeticClass.GameThread">
+ <summary>
+ 游戏局数线程，一关一循环
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.Module1.TestArithmeticClass.JudgeScore(System.String[])">
+ <summary>
+ 算分
+ </summary>
+</member>
+<member name="M:EG_Service_ZJH.Module1.TestArithmeticClass.FailWin(System.String[])">
+ <summary>
+龙与凤比较输赢 返回的数据格  0:A|3:0|0
+龙的牌型:点数|凤的牌型:点数|0龙赢了 1凤赢了 2他俩平手
+ </summary>
+ <returns>返回闲家输赢状态</returns>
+</member>
+<member name="M:EG_Service_ZJH.Module1.TestArithmeticClass.JudgeCardType(System.String)">
+ <summary>
+  判断3张牌的牌型 返回的数据  豹子杀手 -1/2/3/5     散牌0/1/2/4   对子1/2/3/3      顺子2/3/4/5    同花3/4/6/8     同花顺4/5/6/7    豹子5/4/4/4 
+  第一个数是牌型；后面的三个数是点数，点数由小到大排列，对子特殊(最后俩张牌是对子，前面是单张)
+ </summary>
+ <param name="_Card"></param>
+ <returns></returns>
+</member>
+<member name="M:EG_Service_ZJH.Module1.TestArithmeticClass.SendDataToAll(System.String)">
+ <summary>
+ 给所有人发送数据
+ </summary> 
+</member>
+<member name="M:EG_Service_ZJH.Module1.TestArithmeticClass.WashCard">
+ <summary>
+ 洗牌分牌 分2份 分别是：龙 凤  每份3张 数据格式：101/102/114
+ </summary>
+</member>
+</members>
+</doc>
